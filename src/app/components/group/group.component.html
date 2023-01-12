@@ -1,0 +1,98 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <h3>Gruplar</h3>
+      <button class="btn btn-outline-danger" (click)="Ekle(modalEkle)">Grup Ekle</button>
+      <table class="table table-hover mt-3">
+        <thead>
+          <th>Grup Adı</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let grup of gruplar">
+            <td>{{grup.grupAdi}}</td>
+            <td>
+              <button class="btn btn-outline-warning" (click)="Duzenle(grup,modalDuzenle)">Düzenle</button>
+            </td>
+            <td>
+              <button class="btn btn-outline-danger" (click)="Sil(grup,modalSil)">Sil</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Ekle Modal Başlangıç -->
+
+<div class="modal" tabindex="-1" #modalEkle>
+  <div class="modal-dialog" *ngIf="uye | async as user">
+    <form [formGroup]="frm">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title">{{modalBaslik}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Dosya Adı</label>
+            <input type="text" class="form-control" formControlName="grupAdi">
+            <input type="hidden" class="form-control" formControlName="id">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-success" (click)="GrupEkle()">Kaydet</button>
+          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Kapat</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Ekle Modal Bitiş -->
+
+<!-- Sil Modal Başlangıç -->
+
+<div class="modal" tabindex="-1" #modalSil>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-danger text-white">
+        <h5 class="modal-title">{{modalBaslik}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h6 *ngIf="secGrup">{{secGrup.grupAdi}} adlı Dosya Silinecektir Onaylıyor musunuz?</h6>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline-success" *ngIf="secGrup" (click)="GrupSil()">Sil</button>
+        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Kapat</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sil Modal Bitiş -->
+
+<div class="modal" tabindex="-1" #modalDuzenle>
+  <div class="modal-dialog" *ngIf="uye | async as user">
+    <form [formGroup]="frm">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title">{{modalBaslik}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Grup Adı</label>
+            <input type="text" class="form-control" formControlName="grupAdi">
+            <input type="hidden" class="form-control" formControlName="id">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-success" (click)="GrupDuzenle()">Kaydet</button>
+          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Kapat</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

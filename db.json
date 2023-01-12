@@ -1,0 +1,105 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "kullaniciAdi": "Engin",
+      "kullaniciSoyad": "Bolat",
+      "kullaniciKadi": "enginn.blt",
+      "kullaniciEmail": "engi.bolat@gmail.com",
+      "kullaniciSifre": "123",
+      "kullaniciAdminMi": "0",
+      "kullaniciKayitTarihi": "1670322848552",
+      "grupId" : 3
+    },
+    {
+      "id": 2,
+      "kullaniciAdi": "Abuzer",
+      "kullaniciSoyad": "Gündoğdu",
+      "kullaniciKadi": "abudabu",
+      "kullaniciEmail": "abuabu@mail.com",
+      "kullaniciSifre": "123",
+      "kullaniciAdminMi": "1",
+      "kullaniciKayitTarihi": "1670322848552",
+      "grupId" : 2
+    },
+    {
+      "id": 3,
+      "kullaniciAdi": "root",
+      "kullaniciSoyad": null,
+      "kullaniciKadi": "root",
+      "kullaniciEmail": "root",
+      "kullaniciSifre": "root",
+      "kullaniciAdminMi": "0",
+      "kullaniciKayitTarihi": "1670322856448",
+      "grupId" : 1
+    }
+  ],
+  "files": [
+    {
+      "id": 1,
+      "dosyaAdi": null,
+      "photo": null,
+      "dosyaBoyut": null,
+      "dosyaBoyutTuru": null,
+      "usersId": null,
+      "dosyaAdminOzelMi": null,
+      "dosyaYuklenmeTarihi": "1670328207250",
+      "dosyaDuzenlenmeTarihi": "1670328207250",
+      "dosyaYukleyenKadi": "enginn.blt",
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "dosyaAdi": "e",
+      "photo": null,
+      "dosyaBoyut": 23,
+      "dosyaBoyutTuru": "0",
+      "usersId": null,
+      "dosyaAdminOzelMi": "1",
+      "dosyaYuklenmeTarihi": "1670330005584",
+      "dosyaDuzenlenmeTarihi": "1670330005584",
+      "dosyaYukleyenKadi": "enginn.blt",
+      "userId": 1
+    },
+    {
+      "id": 3,
+      "dosyaAdi": "a",
+      "photo": null,
+      "dosyaBoyut": 23,
+      "dosyaBoyutTuru": "0",
+      "usersId": null,
+      "dosyaAdminOzelMi": "1",
+      "dosyaYuklenmeTarihi": "1670330048855",
+      "dosyaDuzenlenmeTarihi": "1670330048855",
+      "dosyaYukleyenKadi": "abudabu",
+      "userId": 2
+    },
+    {
+      "id": 4,
+      "dosyaAdi": "asdas",
+      "photo": null,
+      "dosyaBoyut": 23,
+      "dosyaBoyutTuru": "0",
+      "usersId": null,
+      "dosyaAdminOzelMi": "1",
+      "dosyaYuklenmeTarihi": "1670339826950",
+      "dosyaDuzenlenmeTarihi": "1670339826950",
+      "dosyaYukleyenKadi": "enginn.blt",
+      "userId": 1
+    }
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "grupAd": "Internet-1"
+    },
+    {
+      "id": 2,
+      "grupAd": "Nesne Tabanlı"
+    },
+    {
+      "id": 3,
+      "grupAd": "Grafik Animasyon"
+    }
+  ]
+}

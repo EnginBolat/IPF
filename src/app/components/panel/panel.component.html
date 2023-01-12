@@ -1,0 +1,154 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <h3>Üyeler</h3>
+      <button class="btn btn-outline-danger" (click)="Ekle(modalEkle)">Üye Ekle</button>
+      <table class="table table-hover mt-3">
+        <thead>
+          <th>Adı</th>
+          <th>Soyadı</th>
+          <th>Kullanıcı Adı</th>
+          <th>E-Posta</th>
+          <th>Grup</th>
+          <th>Admin Mi?</th>
+          <th>Kayıt Tarihi</th>
+          <th>Düzenle</th>
+          <th>Sil</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let uye of uyeler">
+            <td id="dosyaYukleyenKadi" [routerLink]="['/profile',uye.uid]" style="font-weight: 300;">
+              {{uye.displayName}}</td>
+            <td>{{uye.kullaniciSoyad}}</td>
+            <td>{{uye.kullaniciKadi}}</td>
+            <td>{{uye.kullaniciEmail}}</td>
+            <th>{{uye.grupId}}</th>
+            <td>
+              <span *ngIf="uye.kullaniciAdminMi==1" class="badge bg-success">Evet</span>
+              <span *ngIf="uye.kullaniciAdminMi==0" class="badge bg-danger">Hayır</span>
+            </td>
+            <td>{{uye.kullaniciKayitTarihi | date:'dd.MM.yyyy'}}</td>
+            <td><button class="btn btn-outline-warning" (click)="Duzenle(uye,modalDuzenle)
+              ">Düzenle</button></td>
+            <td><button class="btn btn-outline-danger" (click)="Sil(uye,modalSil)">Sil</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Ekle Modal Başlangıç -->
+
+<div class="modal" tabindex="-1" #modalEkle>
+  <div class="modal-dialog">
+    <form [formGroup]="frm">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title">{{modalBaslik}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Adı</label>
+            <input type="text" class="form-control" formControlName="displayName" #displayName>
+            <label>Soyadı</label>
+            <input type="text" class="form-control" formControlName="kullaniciSoyad" #kullaniciSoyad>
+            <label>Kullanıcı Adı</label>
+            <input type="text" class="form-control" formControlName="kullaniciKadi" #kullaniciKadi>
+            <label>E-Posta</label>
+            <input type="email" class="form-control" formControlName="kullaniciEmail" #kullaniciEmail>
+            <label>Şifre</label>
+            <input type="password" class="form-control" formControlName="kullaniciSifre" #kullaniciSifre>
+            <label>Admin Mi?</label>
+            <select class="form-control" formControlName="kullaniciAdminMi" #kullaniciAdminMi>
+              <option value="1">Hayır</option>
+              <option value="0">Evet</option>
+            </select>
+            <label>Grup</label>
+            <select class="form-control" formControlName="grupId">
+              <option *ngFor="let grup of gruplar" value="{{grup.id}}">{{grup.grupAdi}}</option>
+            </select>
+            <input type="hidden" class="form-control" formControlName="uid">
+            <input type="hidden" class="form-control" formControlName="kullaniciKayitTarihi">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <input type="submit" class="btn btn-outline-success" value="Ekle" (click)="UyeEkle()">
+          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Kapat</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Ekle Modal Bitiş -->
+
+<!-- Düzenle Modal Başlangıç -->
+
+<div class="modal" tabindex="-1" #modalDuzenle>
+  <div class="modal-dialog">
+    <form [formGroup]="frm">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title">{{modalBaslik}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Adı</label>
+            <input type="text" class="form-control" formControlName="displayName" #displayName>
+            <label>Soyadı</label>
+            <input type="text" class="form-control" formControlName="kullaniciSoyad" #kullaniciSoyad>
+            <label>Kullanıcı Adı</label>
+            <input type="text" class="form-control" formControlName="kullaniciKadi" #kullaniciKadi>
+            <label>E-Posta</label>
+            <input type="email" class="form-control" formControlName="kullaniciEmail" #kullaniciEmail>
+            <label>Şifre</label>
+            <input type="password" class="form-control" formControlName="kullaniciSifre" #kullaniciSifre>
+            <label>Admin Mi?</label>
+            <select class="form-control" formControlName="kullaniciAdminMi" #kullaniciAdminMi>
+              <option value="0">Hayır</option>
+              <option value="1">Evet</option>
+            </select>
+            <label>Grup</label>
+            <select class="form-control" formControlName="grupId">
+              <option *ngFor="let grup of gruplar" value="{{grup.id}}">{{grup.grupAdi}}</option>
+            </select>
+            <input type="hidden" class="form-control" formControlName="uid">
+            <input type="hidden" class="form-control" formControlName="kullaniciKayitTarihi">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <input type="submit" class="btn btn-outline-success" value="Düzenle" *ngIf="secUye"
+            (click)="UyeDuzenle(this.secUye)">
+          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Kapat</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Düzenle Modal Bitiş -->
+
+<!-- Sil Modal Başlangıç -->
+
+<div class="modal" tabindex="-1" #modalSil>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-danger text-white">
+        <h5 class="modal-title">{{modalBaslik}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h6 *ngIf="secUye">{{secUye.displayName}} adlı Üye Silinecektir Onaylıyor musunuz?</h6>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline-success" *ngIf="secUye" (click)="UyeSil()">Sil</button>
+        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Kapat</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sil Modal Bitiş -->

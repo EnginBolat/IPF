@@ -79,3 +79,18 @@ Link: https://youtu.be/TeoRqkzSnp4
 ## Kullanıcı Profil Sayfası
 
 <img width="1440" alt="Ekran Resmi 2023-01-12 08 51 47" src="https://user-images.githubusercontent.com/59659276/211989375-013e3672-a4fb-4d35-a8b8-155dafa02aa3.png">
+
+## Firebase
+<img width="1261" alt="Ekran Resmi 2023-01-12 09 12 05" src="https://user-images.githubusercontent.com/59659276/211991385-059d3957-3e30-4781-8d82-98135b56c5f7.png">
+
+##
+<img width="1261" alt="Ekran Resmi 2023-01-12 09 12 13" src="https://user-images.githubusercontent.com/59659276/211991394-844bf13c-33b1-4b29-ab6e-7f11b08c69c7.png">
+
+##
+
+<img width="1256" alt="Ekran Resmi 2023-01-12 09 12 30" src="https://user-images.githubusercontent.com/59659276/211991408-a6f45abf-d9c2-4e3b-a6b5-0c18a2a473c6.png">
+
+## Database Diagram
+
+<img width="620" alt="databaseDiagram" src="https://user-images.githubusercontent.com/59659276/211991499-98bb3f91-8f75-42b1-8b32-52db2940c580.png">
+
